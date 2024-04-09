@@ -53,4 +53,4 @@ File Structure
 # The MidiFile.h library is used for creating and manipulating MIDI files.
 License
 
-This project is licensed BS.
+This project is licensed under the BSD license.
