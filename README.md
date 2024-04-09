@@ -44,11 +44,11 @@ g++ -o music_genetic_algorithm main.cpp
 
 #File Structure
 
-## main.cpp: 
+### main.cpp: 
  Main source code implementing the genetic algorithm.
-## MidiFile.h: 
+### MidiFile.h: 
  External library for MIDI file manipulation.
-## README.md: 
+### README.md: 
  Documentation file providing an overview of the project and usage instructions.
 # Credits
  This project utilizes concepts from genetic algorithms and MIDI file manipulation.
