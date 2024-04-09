@@ -33,10 +33,14 @@ g++ -o music_genetic_algorithm main.cpp
 ## Execution
 
 ### Run the compiled program with optional command-line arguments:
- ./music_genetic_algorithm [max_chords] [max_generations] [tempo_bpm]
+ #### ./music_genetic_algorithm [max_chords] [max_generations] [tempo_bpm]
+ 
  [max_chords]: Maximum number of musical chords in each sequence (default: 8).
+ 
  [max_generations]: Maximum number of generations to evolve sequences (default: 25).
+ 
  [tempo_bpm]: Tempo (beats per minute) for the generated MIDI files (default: 120 BPM).
+ 
  #### Example
  ./music_genetic_algorithm 10 20 100
   
