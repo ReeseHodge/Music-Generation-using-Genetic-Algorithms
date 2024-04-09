@@ -28,33 +28,29 @@ External Library MidiFile.h for MIDI file manipulation.
 # Compilation
 Compile the program using a C++ compiler:
 
-bash
-Copy code
 g++ -o music_genetic_algorithm main.cpp
-Execution
-Run the compiled program with optional command-line arguments:
 
-bash
-Copy code
-./music_genetic_algorithm [max_chords] [max_generations] [tempo_bpm]
-[max_chords]: Maximum number of musical chords in each sequence (default: 8).
-[max_generations]: Maximum number of generations to evolve sequences (default: 25).
-[tempo_bpm]: Tempo (beats per minute) for the generated MIDI files (default: 120 BPM).
-Example
-bash
-Copy code
-./music_genetic_algorithm 10 20 100
-This command runs the genetic algorithm with 10 chords per sequence, evolving over 20 generations, and sets the tempo to 100 BPM.
+# Execution
+
+## Run the compiled program with optional command-line arguments:
+ ./music_genetic_algorithm [max_chords] [max_generations] [tempo_bpm]
+ [max_chords]: Maximum number of musical chords in each sequence (default: 8).
+ [max_generations]: Maximum number of generations to evolve sequences (default: 25).
+ [tempo_bpm]: Tempo (beats per minute) for the generated MIDI files (default: 120 BPM).
+ ### Example
+ ./music_genetic_algorithm 10 20 100
+  
+  This command runs the genetic algorithm with 10 chords per sequence, evolving over 20 generations,   and sets the tempo to 100 BPM.
 
 File Structure
 
-main.cpp: Main source code implementing the genetic algorithm.
-MidiFile.h: External library for MIDI file manipulation.
-README.md: Documentation file providing an overview of the project and usage instructions.
-Credits
+# main.cpp: Main source code implementing the genetic algorithm.
+# MidiFile.h: External library for MIDI file manipulation.
+# README.md: Documentation file providing an overview of the project and usage instructions.
+# Credits
 
-This project utilizes concepts from genetic algorithms and MIDI file manipulation.
-The MidiFile.h library is used for creating and manipulating MIDI files.
+# This project utilizes concepts from genetic algorithms and MIDI file manipulation.
+# The MidiFile.h library is used for creating and manipulating MIDI files.
 License
 
-This project is licensed under the MIT License.
+This project is licensed BS.
