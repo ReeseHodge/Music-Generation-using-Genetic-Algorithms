@@ -18,26 +18,26 @@ Evaluates and selects the best-performing children based on similarity scores to
 Produces MIDI files (Final_Child1.mid and Final_Child2.mid) based on the best-performing children sequences obtained after the specified number of generations.
 # Usage
 
-# Prerequisites
+## Prerequisites
 
 C++ compiler supporting C++11 or later.
 Standard Template Library (STL) 
 Standard MIDI File(SMF) from 
 External Library MidiFile.h for MIDI file manipulation.
 
-# Compilation
+## Compilation
 Compile the program using a C++ compiler:
 
 g++ -o music_genetic_algorithm main.cpp
 
-# Execution
+## Execution
 
-## Run the compiled program with optional command-line arguments:
+### Run the compiled program with optional command-line arguments:
  ./music_genetic_algorithm [max_chords] [max_generations] [tempo_bpm]
  [max_chords]: Maximum number of musical chords in each sequence (default: 8).
  [max_generations]: Maximum number of generations to evolve sequences (default: 25).
  [tempo_bpm]: Tempo (beats per minute) for the generated MIDI files (default: 120 BPM).
- ### Example
+ #### Example
  ./music_genetic_algorithm 10 20 100
   
   This command runs the genetic algorithm with 10 chords per sequence, evolving over 20 generations,   and sets the tempo to 100 BPM.
