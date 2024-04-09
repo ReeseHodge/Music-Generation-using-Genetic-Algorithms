@@ -6,7 +6,7 @@ This program demonstrates a genetic algorithm approach to generate musical seque
 
 The project implements a genetic algorithm that evolves sequences of musical notes (chords) over multiple generations. The genetic algorithm follows these key steps:
 
-# Initialization:
+## Initialization:
 Initializes settings such as maximum number of chords, maximum number of generations, and tempo.
 Defines a set of musical chord mappings used for generating and evaluating sequences.
 ## Parent Generation:
