@@ -54,7 +54,7 @@ vs parent1;
 // This variable represents the second parent in a genetic algorithm or similar process.
 // Similar to 'parent1', this variable holds a sequence of musical notes or chords for breeding.
 vs parent2;
-map<string,vector<int>> noteMappings={
+map<string,vi> noteMappings={
 	{"C", {60, 64, 67}},      // C major
     {"Cm", {60, 63, 67}},     // C minor
     {"C7", {60, 64, 67, 70}}, // C dominant 7th
