@@ -42,15 +42,17 @@ g++ -o music_genetic_algorithm main.cpp
   
   This command runs the genetic algorithm with 10 chords per sequence, evolving over 20 generations,   and sets the tempo to 100 BPM.
 
-File Structure
+#File Structure
 
-# main.cpp: Main source code implementing the genetic algorithm.
-# MidiFile.h: External library for MIDI file manipulation.
-# README.md: Documentation file providing an overview of the project and usage instructions.
+## main.cpp: 
+ Main source code implementing the genetic algorithm.
+## MidiFile.h: 
+ External library for MIDI file manipulation.
+## README.md: 
+ Documentation file providing an overview of the project and usage instructions.
 # Credits
-
-# This project utilizes concepts from genetic algorithms and MIDI file manipulation.
-# The MidiFile.h library is used for creating and manipulating MIDI files.
-License
+ This project utilizes concepts from genetic algorithms and MIDI file manipulation.
+ The MidiFile.h library is used for creating and manipulating MIDI files.
+# License
 
 This project is licensed under the BSD license.
