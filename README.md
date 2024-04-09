@@ -42,7 +42,7 @@ g++ -o music_genetic_algorithm main.cpp
   
   This command runs the genetic algorithm with 10 chords per sequence, evolving over 20 generations,   and sets the tempo to 100 BPM.
 
-#File Structure
+# File Structure
 
 ### main.cpp: 
  Main source code implementing the genetic algorithm.
