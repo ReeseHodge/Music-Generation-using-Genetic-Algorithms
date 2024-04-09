@@ -28,7 +28,7 @@ External Library MidiFile.h for MIDI file manipulation.
 ## Compilation
 Compile the program using a C++ compiler:
 
-g++ -o music_genetic_algorithm main.cpp
+g++ -std='c++11' -o music_genetic_algorithm *.cpp
 
 ## Execution
 
