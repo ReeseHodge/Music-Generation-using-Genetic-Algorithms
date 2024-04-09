@@ -19,9 +19,13 @@ Produces MIDI files (Final_Child1.mid and Final_Child2.mid) based on the best-pe
 # Usage
 
 # Prerequisites
+
 C++ compiler supporting C++11 or later.
-Standard Template Library (STL) and external library MidiFile.h for MIDI file manipulation.
-Compilation
+Standard Template Library (STL) 
+Standard MIDI File(SMF) from 
+External Library MidiFile.h for MIDI file manipulation.
+
+# Compilation
 Compile the program using a C++ compiler:
 
 bash
