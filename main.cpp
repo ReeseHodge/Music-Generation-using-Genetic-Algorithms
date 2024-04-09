@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <ctime>
 #include <cmath>
+#include <climits>
 //for making the files:
 #include "MidiFile.h"
 #include <map>
@@ -54,7 +55,7 @@ vs parent1;
 // This variable represents the second parent in a genetic algorithm or similar process.
 // Similar to 'parent1', this variable holds a sequence of musical notes or chords for breeding.
 vs parent2;
-map<string,vi> noteMappings={
+map<string,vector<int>> noteMappings={
 	{"C", {60, 64, 67}},      // C major
     {"Cm", {60, 63, 67}},     // C minor
     {"C7", {60, 64, 67, 70}}, // C dominant 7th
@@ -116,7 +117,7 @@ vs generateCombinations(int max_notes){
 		set_up_notes();
 		for(int i=0;i<max_notes;i++){
 		octave=rand()%8;
-		NotesToPlay.push_back(to_string(octave)+Notes[i]);
+		NotesToPlay.push_back(to_string(octave)+Notes[rand()%Notes.size()]);
 	};
 	return NotesToPlay;
 }
@@ -223,7 +224,7 @@ vs generateChildren(vs parent1,vs parent2){
 		}
 	}
 	child=mutate(child);
-	return child;	
+	return child;
 }
 /*
 Function name: bestChildren
@@ -357,11 +358,9 @@ void makeMusic(vs ending_parent1, vs ending_parent2){
 	for(int i=0; i<ending_parent1.size();i++){
 		int track = 0;
 		midiFile.addTracks(1);
-		midiFile.setTicksPerQuarterNote(480); // 480 ticks per quarter note is standard
-    	int microsecondsPerQuarterNote = 60000000 / tempoInput; // Calculate microseconds per quarter note
-		midiFile.addTempo(track, 0, microsecondsPerQuarterNote);
+		midiFile.addTempo(track, 0, tempoInput);
 		int startTime = 0;
-		int ticksPerMeasure = midiFile.getTicksPerQuarterNote() * 4;
+		int ticksPerMeasure = midiFile.getTicksPerQuarterNote();
 		for (i=0; i<ending_parent1.size(); i++){
 			int octave = ending_parent1[i][0]-'0';
 			string chordName = ending_parent1[i].substr(1);
@@ -380,11 +379,9 @@ void makeMusic(vs ending_parent1, vs ending_parent2){
 	for(int i=0; i<ending_parent2.size();i++){
 		int track = 0;
 		midiFile2.addTracks(1);
-		midiFile2.setTicksPerQuarterNote(480); // 480 ticks per quarter note is standard
-    	int microsecondsPerQuarterNote = 60000000 / tempoInput; // Calculate microseconds per quarter note
-		midiFile2.addTempo(track, 0, microsecondsPerQuarterNote);
+		midiFile2.addTempo(track, 0, tempoInput);
 		int startTime = 0;
-		int ticksPerMeasure = midiFile2.getTicksPerQuarterNote() * 4;
+		int ticksPerMeasure = midiFile2.getTicksPerQuarterNote();
 		for (i=0; i<ending_parent2.size(); i++){
 			int octave = ending_parent2[i][0]-'0';
 			string chordName = ending_parent2[i].substr(1);
