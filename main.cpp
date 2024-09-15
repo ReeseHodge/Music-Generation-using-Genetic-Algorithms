@@ -55,45 +55,162 @@ vs parent1;
 // This variable represents the second parent in a genetic algorithm or similar process.
 // Similar to 'parent1', this variable holds a sequence of musical notes or chords for breeding.
 vs parent2;
-map<string,vector<int>> noteMappings={
-	{"C", {60, 64, 67}},      // C major
+   map<string,vector<int>> noteMappings = {
+    {"C", {60, 64, 67}},      // C major
     {"Cm", {60, 63, 67}},     // C minor
     {"C7", {60, 64, 67, 70}}, // C dominant 7th
-    {"Db", {61, 65, 68}},     // Db major
-    {"Dbm", {61, 64, 68}},    // Db minor
+    {"Cmaj7", {60, 64, 67, 71}}, // C major 7th
+    {"Cm7", {60, 63, 67, 70}}, // C minor 7th
+    {"Cdim", {60, 63, 66}},    // C diminished
+    {"Cdim7", {60, 63, 66, 69}}, // C diminished 7th
+    {"Caug", {60, 64, 68}},    // C augmented
+    {"Csus2", {60, 62, 67}},   // C suspended 2nd
+    {"Csus4", {60, 65, 67}},   // C suspended 4th
+    {"CmMaj7", {60, 63, 67, 71}}, // C minor major 7th
+    
+    {"Db", {61, 65, 68}},      // Db major
+    {"Dbm", {61, 64, 68}},     // Db minor
     {"Db7", {61, 65, 68, 71}}, // Db dominant 7th
+    {"Dbmaj7", {61, 65, 68, 72}}, // Db major 7th
+    {"Dbm7", {61, 64, 68, 71}}, // Db minor 7th
+    {"Dbdim", {61, 64, 67}},    // Db diminished
+    {"Dbdim7", {61, 64, 67, 70}}, // Db diminished 7th
+    {"Dbaug", {61, 65, 69}},    // Db augmented
+    {"Dbsus2", {61, 63, 68}},   // Db suspended 2nd
+    {"Dbsus4", {61, 66, 68}},   // Db suspended 4th
+    {"DbmMaj7", {61, 64, 68, 72}}, // Db minor major 7th
+
     {"D", {62, 66, 69}},      // D major
     {"Dm", {62, 65, 69}},     // D minor
     {"D7", {62, 66, 69, 72}}, // D dominant 7th
-    {"Eb", {63, 67, 70}},     // Eb major
-    {"Ebm", {63, 66, 70}},    // Eb minor
+    {"Dmaj7", {62, 66, 69, 73}}, // D major 7th
+    {"Dm7", {62, 65, 69, 72}}, // D minor 7th
+    {"Ddim", {62, 65, 68}},    // D diminished
+    {"Ddim7", {62, 65, 68, 71}}, // D diminished 7th
+    {"Daug", {62, 66, 70}},    // D augmented
+    {"Dsus2", {62, 64, 69}},   // D suspended 2nd
+    {"Dsus4", {62, 67, 69}},   // D suspended 4th
+    {"DmMaj7", {62, 65, 69, 73}}, // D minor major 7th
+    
+    {"Eb", {63, 67, 70}},      // Eb major
+    {"Ebm", {63, 66, 70}},     // Eb minor
     {"Eb7", {63, 67, 70, 73}}, // Eb dominant 7th
+    {"Ebmaj7", {63, 67, 70, 74}}, // Eb major 7th
+    {"Ebm7", {63, 66, 70, 73}}, // Eb minor 7th
+    {"Ebdim", {63, 66, 69}},    // Eb diminished
+    {"Ebdim7", {63, 66, 69, 72}}, // Eb diminished 7th
+    {"Ebaug", {63, 67, 71}},    // Eb augmented
+    {"Ebsus2", {63, 65, 70}},   // Eb suspended 2nd
+    {"Ebsus4", {63, 68, 70}},   // Eb suspended 4th
+    {"EbmMaj7", {63, 66, 70, 74}}, // Eb minor major 7th
+    
     {"E", {64, 68, 71}},      // E major
     {"Em", {64, 67, 71}},     // E minor
     {"E7", {64, 68, 71, 74}}, // E dominant 7th
+    {"Emaj7", {64, 68, 71, 75}}, // E major 7th
+    {"Em7", {64, 67, 71, 74}}, // E minor 7th
+    {"Edim", {64, 67, 70}},    // E diminished
+    {"Edim7", {64, 67, 70, 73}}, // E diminished 7th
+    {"Eaug", {64, 68, 72}},    // E augmented
+    {"Esus2", {64, 66, 71}},   // E suspended 2nd
+    {"Esus4", {64, 69, 71}},   // E suspended 4th
+    {"EmMaj7", {64, 67, 71, 75}}, // E minor major 7th
+    
     {"F", {65, 69, 72}},      // F major
     {"Fm", {65, 68, 72}},     // F minor
     {"F7", {65, 69, 72, 75}}, // F dominant 7th
-    {"Gb", {66, 70, 73}},     // Gb major
-    {"Gbm", {66, 69, 73}},    // Gb minor
+    {"Fmaj7", {65, 69, 72, 76}}, // F major 7th
+    {"Fm7", {65, 68, 72, 75}}, // F minor 7th
+    {"Fdim", {65, 68, 71}},    // F diminished
+    {"Fdim7", {65, 68, 71, 74}}, // F diminished 7th
+    {"Faug", {65, 69, 73}},    // F augmented
+    {"Fsus2", {65, 67, 72}},   // F suspended 2nd
+    {"Fsus4", {65, 70, 72}},   // F suspended 4th
+    {"FmMaj7", {65, 68, 72, 76}}, // F minor major 7th
+    
+    {"Gb", {66, 70, 73}},      // Gb major
+    {"Gbm", {66, 69, 73}},     // Gb minor
     {"Gb7", {66, 70, 73, 76}}, // Gb dominant 7th
+    {"Gbmaj7", {66, 70, 73, 77}}, // Gb major 7th
+    {"Gbm7", {66, 69, 73, 76}}, // Gb minor 7th
+    {"Gbdim", {66, 69, 72}},    // Gb diminished
+    {"Gbdim7", {66, 69, 72, 75}}, // Gb diminished 7th
+    {"Gbaug", {66, 70, 74}},    // Gb augmented
+    {"Gbsus2", {66, 68, 73}},   // Gb suspended 2nd
+    {"Gbsus4", {66, 71, 73}},   // Gb suspended 4th
+    {"GbmMaj7", {66, 69, 73, 77}}, // Gb minor major 7th
+
     {"G", {67, 71, 74}},      // G major
     {"Gm", {67, 70, 74}},     // G minor
     {"G7", {67, 71, 74, 77}}, // G dominant 7th
-    {"Ab", {68, 72, 75}},     // Ab major
-    {"Abm", {68, 71, 75}},    // Ab minor
+    {"Gmaj7", {67, 71, 74, 78}}, // G major 7th
+    {"Gm7", {67, 70, 74, 77}}, // G minor 7th
+    {"Gdim", {67, 70, 73}},    // G diminished
+    {"Gdim7", {67, 70, 73, 76}}, // G diminished 7th
+    {"Gaug", {67, 71, 75}},    // G augmented
+    {"Gsus2", {67, 69, 74}},   // G suspended 2nd
+    {"Gsus4", {67, 72, 74}},   // G suspended 4th
+    {"GmMaj7", {67, 70, 74, 78}}, // G minor major 7th
+    {"Ab", {68, 72, 75}},      // Ab major
+    {"Abm", {68, 71, 75}},     // Ab minor
     {"Ab7", {68, 72, 75, 78}}, // Ab dominant 7th
+    {"Abmaj7", {68, 72, 75, 79}}, // Ab major 7th
+    {"Abm7", {68, 71, 75, 78}}, // Ab minor 7th
+    {"Abdim", {68, 71, 74}},    // Ab diminished
+    {"Abdim7", {68, 71, 74, 77}}, // Ab diminished 7th
+    {"Abaug", {68, 72, 76}},    // Ab augmented
+    {"Absus2", {68, 70, 75}},   // Ab suspended 2nd
+    {"Absus4", {68, 73, 75}},   // Ab suspended 4th
+    {"AbmMaj7", {68, 71, 75, 79}}, // Ab minor major 7th
     {"A", {69, 73, 76}},      // A major
     {"Am", {69, 72, 76}},     // A minor
     {"A7", {69, 73, 76, 79}}, // A dominant 7th
-    {"Bb", {70, 74, 77}},     // Bb major
-    {"Bbm", {70, 73, 77}},    // Bb minor
+    {"Amaj7", {69, 73, 76, 80}}, // A major 7th
+    {"Am7", {69, 72, 76, 79}}, // A minor 7th
+    {"Adim", {69, 72, 75}},    // A diminished
+    {"Adim7", {69, 72, 75, 78}}, // A diminished 7th
+    {"Aaug", {69, 73, 77}},    // A augmented
+    {"Asus2", {69, 71, 76}},   // A suspended 2nd
+    {"Asus4", {69, 74, 76}},   // A suspended 4th
+    {"AmMaj7", {69, 72, 76, 80}}, // A minor major 7th
+    {"Bb", {70, 74, 77}},      // Bb major
+    {"Bbm", {70, 73, 77}},     // Bb minor
     {"Bb7", {70, 74, 77, 80}}, // Bb dominant 7th
+    {"Bbmaj7", {70, 74, 77, 81}}, // Bb major 7th
+    {"Bbm7", {70, 73, 77, 80}}, // Bb minor 7th
+    {"Bbdim", {70, 73, 76}},    // Bb diminished
+    {"Bbdim7", {70, 73, 76, 79}}, // Bb diminished 7th
+    {"Bbaug", {70, 74, 78}},    // Bb augmented
+    {"Bbsus2", {70, 72, 77}},   // Bb suspended 2nd
+    {"Bbsus4", {70, 75, 77}},   // Bb suspended 4th
+    {"BbmMaj7", {70, 73, 77, 81}}, // Bb minor major 7th
     {"B", {71, 75, 78}},      // B major
     {"Bm", {71, 74, 78}},     // B minor
-    {"B7", {71, 75, 78, 81}}  // B dominant 7th
+    {"B7", {71, 75, 78, 81}}, // B dominant 7th
+    {"Bmaj7", {71, 75, 78, 82}}, // B major 7th
+    {"Bm7", {71, 74, 78, 81}}, // B minor 7th
+    {"Bdim", {71, 74, 77}},    // B diminished
+    {"Bdim7", {71, 74, 77, 80}}, // B diminished 7th
+    {"Baug", {71, 75, 79}},    // B augmented
+    {"Bsus2", {71, 73, 78}},   // B suspended 2nd
+    {"Bsus4", {71, 76, 78}},   // B suspended 4th
+    {"BmMaj7", {71, 74, 78, 82}}  // B minor major 7th
 };
-string array1[36]={"Eb","Ebm","Eb7","D","Dm","D7","A","Am","A7","Bb","Bbm","Bb7","G","Gm","G7","F","Fm","F7","Db","Dbm","Db7","Gb","Gbm","Gb7","E","Em","E7","C","Cm","C7","B","Bm","B7","Ab","Abm","Ab7"};
+string array1[84] = {
+    "Eb", "Ebm", "Eb7", "Ebmaj7", "Ebm7", "Ebdim", "Ebdim7", "Ebaug", "Ebsus2", "Ebsus4", "EbmMaj7",
+    "D", "Dm", "D7", "Dmaj7", "Dm7", "Ddim", "Ddim7", "Daug", "Dsus2", "Dsus4", "DmMaj7",
+    "A", "Am", "A7", "Amaj7", "Am7", "Adim", "Adim7", "Aaug", "Asus2", "Asus4", "AmMaj7",
+    "Bb", "Bbm", "Bb7", "Bbmaj7", "Bbm7", "Bbdim", "Bbdim7", "Bbaug", "Bbsus2", "Bbsus4", "BbmMaj7",
+    "G", "Gm", "G7", "Gmaj7", "Gm7", "Gdim", "Gdim7", "Gaug", "Gsus2", "Gsus4", "GmMaj7",
+    "F", "Fm", "F7", "Fmaj7", "Fm7", "Fdim", "Fdim7", "Faug", "Fsus2", "Fsus4", "FmMaj7",
+    "Db", "Dbm", "Db7", "Dbmaj7", "Dbm7", "Dbdim", "Dbdim7", "Dbaug", "Dbsus2", "Dbsus4", "DbmMaj7",
+    "Gb", "Gbm", "Gb7", "Gbmaj7", "Gbm7", "Gbdim", "Gbdim7", "Gbaug", "Gbsus2", "Gbsus4", "GbmMaj7",
+    "E", "Em", "E7", "Emaj7", "Em7", "Edim", "Edim7", "Eaug", "Esus2", "Esus4", "EmMaj7",
+    "C", "Cm", "C7", "Cmaj7", "Cm7", "Cdim", "Cdim7", "Caug", "Csus2", "Csus4", "CmMaj7",
+    "B", "Bm", "B7", "Bmaj7", "Bm7", "Bdim", "Bdim7", "Baug", "Bsus2", "Bsus4", "BmMaj7",
+    "Ab", "Abm", "Ab7", "Abmaj7", "Abm7", "Abdim", "Abdim7", "Abaug", "Absus2", "Absus4", "AbmMaj7"
+};
+
 /*
 	Function name: set_up_notes
 	Arguments: None
