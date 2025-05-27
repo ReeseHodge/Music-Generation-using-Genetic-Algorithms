@@ -196,19 +196,20 @@ vs parent2;
     {"Bsus4", {71, 76, 78}},   // B suspended 4th
     {"BmMaj7", {71, 74, 78, 82}}  // B minor major 7th
 };
-string array1[84] = {
-    "Eb", "Ebm", "Eb7", "Ebmaj7", "Ebm7", "Ebdim", "Ebdim7", "Ebaug", "Ebsus2", "Ebsus4", "EbmMaj7",
-    "D", "Dm", "D7", "Dmaj7", "Dm7", "Ddim", "Ddim7", "Daug", "Dsus2", "Dsus4", "DmMaj7",
-    "A", "Am", "A7", "Amaj7", "Am7", "Adim", "Adim7", "Aaug", "Asus2", "Asus4", "AmMaj7",
-    "Bb", "Bbm", "Bb7", "Bbmaj7", "Bbm7", "Bbdim", "Bbdim7", "Bbaug", "Bbsus2", "Bbsus4", "BbmMaj7",
-    "G", "Gm", "G7", "Gmaj7", "Gm7", "Gdim", "Gdim7", "Gaug", "Gsus2", "Gsus4", "GmMaj7",
-    "F", "Fm", "F7", "Fmaj7", "Fm7", "Fdim", "Fdim7", "Faug", "Fsus2", "Fsus4", "FmMaj7",
-    "Db", "Dbm", "Db7", "Dbmaj7", "Dbm7", "Dbdim", "Dbdim7", "Dbaug", "Dbsus2", "Dbsus4", "DbmMaj7",
-    "Gb", "Gbm", "Gb7", "Gbmaj7", "Gbm7", "Gbdim", "Gbdim7", "Gbaug", "Gbsus2", "Gbsus4", "GbmMaj7",
-    "E", "Em", "E7", "Emaj7", "Em7", "Edim", "Edim7", "Eaug", "Esus2", "Esus4", "EmMaj7",
-    "C", "Cm", "C7", "Cmaj7", "Cm7", "Cdim", "Cdim7", "Caug", "Csus2", "Csus4", "CmMaj7",
-    "B", "Bm", "B7", "Bmaj7", "Bm7", "Bdim", "Bdim7", "Baug", "Bsus2", "Bsus4", "BmMaj7",
-    "Ab", "Abm", "Ab7", "Abmaj7", "Abm7", "Abdim", "Abdim7", "Abaug", "Absus2", "Absus4", "AbmMaj7"
+typedef tuple<string,vs> ChordList;
+ChordList Chords[12] = {
+	{"Eb",{"Eb", "Ebm", "Eb7", "Ebmaj7", "Ebm7", "Ebdim", "Ebdim7", "Ebaug", "Ebsus2", "Ebsus4", "EbmMaj7"}}
+	, {"D",{"D", "Dm", "D7", "Dmaj7", "Dm7", "Ddim", "Ddim7", "Daug", "Dsus2", "Dsus4", "DmMaj7"}}
+	, {"A",{"A", "Am", "A7", "Amaj7", "Am7", "Adim", "Adim7", "Aaug", "Asus2", "Asus4", "AmMaj7"}}
+	, {"Bb",{"Bb", "Bbm", "Bb7", "Bbmaj7", "Bbm7", "Bbdim", "Bbdim7", "Bbaug", "Bbsus2", "Bbsus4", "BbmMaj7"}}
+	, {"G",{"G", "Gm", "G7", "Gmaj7", "Gm7", "Gdim", "Gdim7", "Gaug", "Gsus2", "Gsus4", "GmMaj7"}}
+	, {"F",{"F", "Fm", "F7", "Fmaj7", "Fm7", "Fdim", "Fdim7", "Faug", "Fsus2", "Fsus4", "FmMaj7"}}
+	, {"Db",{"Db", "Dbm", "Db7", "Dbmaj7", "Dbm7", "Dbdim", "Dbdim7", "Dbaug", "Dbsus2", "Dbsus4", "DbmMaj7"}}
+	, {"Gb",{"Gb", "Gbm", "Gb7", "Gbmaj7", "Gbm7", "Gbdim", "Gbdim7", "Gbaug", "Gbsus2", "Gbsus4", "GbmMaj7"}}
+	, {"E",{"E", "Em", "E7", "Emaj7", "Em7", "Edim", "Edim7", "Eaug", "Esus2", "Esus4", "EmMaj7"}}
+	, {"C",{"C", "Cm", "C7", "Cmaj7", "Cm7", "Cdim", "Cdim7", "Caug", "Csus2", "Csus4", "CmMaj7"}}
+	, {"B",{"B", "Bm", "B7", "Bmaj7", "Bm7", "Bdim", "Bdim7", "Baug", "Bsus2", "Bsus4", "BmMaj7"}}
+	, {"Ab",{"Ab", "Abm", "Ab7", "Abmaj7", "Abm7", "Abdim", "Abdim7", "Abaug", "Absus2", "Absus4", "AbmMaj7"}}
 };
 
 /*
@@ -216,10 +217,15 @@ string array1[84] = {
 	Arguments: None
 	Returns: void
 	Function Description: Initializes the global vector `Notes` with predefined chord names.
+	Updated for windows os. There was an error about the array on the Mac Version being too long.
 */
 void set_up_notes(){
-	for (string obj:array1){
-		Notes.push_back(obj);
+	Notes.clear();
+	for (int i=0; i<11;i++){
+		vs chordPtr = get<1>(Chords[i]);
+		for (const string& variation : chordPtr) {
+			Notes.push_back(variation);
+		}
 	}
 }
 /*
