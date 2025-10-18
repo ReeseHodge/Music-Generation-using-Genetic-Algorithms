@@ -7,7 +7,7 @@ This program demonstrates a genetic algorithm approach to generate musical seque
 The project implements a genetic algorithm that evolves sequences of musical notes (chords) over multiple generations. The genetic algorithm follows these key steps:
 
 ## Initialization:
-Initializes settings such as maximum number of chords, maximum number of generations, and tempo.
+Initializes settings such as the maximum number of chords, the maximum number of generations, and the tempo.
 Defines a set of musical chord mappings used for generating and evaluating sequences.
 ## Parent Generation:
 Generates an initial population of parent sequences (parent1 and parent2) consisting of randomly generated musical note combinations.
@@ -56,8 +56,7 @@ g++ -std='c++11' -o music_genetic_algorithm *.cpp
 ### README.md: 
  Documentation file providing an overview of the project and usage instructions.
 # Credits
- This project utilizes concepts from genetic algorithms and MIDI file manipulation.
- The MidiFile.h library is used for creating and manipulating MIDI files.
+This project utilizes concepts from genetic algorithms and MIDI file manipulation. The MidiFile.h library used for this program is for the creation and manipulation of MIDI files.
 # License
 
-This project is licensed under the BSD license.
+This project is under the BSD license.
